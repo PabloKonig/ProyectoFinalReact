@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const { state, dispatch } = useContext(ContextGlobal);
+  const ClassTheme = state.theme === 'dark' ? 'dark_theme' : 'light_theme';
   return (
-    <div className='nav'>
+    <div className={'nav ' + ClassTheme}>
     <nav>
       <ul>
         <li>
@@ -21,7 +22,7 @@ const Navbar = () => {
         </li>
       </ul>  
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button*/}
-      <button onClick={() => dispatch({ type: 'CHANGETHEME'})}>Change theme{state.theme}</button>
+      <button onClick={() => dispatch({ type: 'CHANGETHEME'})}>Change theme</button>
     </nav>
     </div>
   )

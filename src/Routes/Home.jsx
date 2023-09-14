@@ -1,11 +1,13 @@
-import React, { useEffect, } from 'react'
+import React, { useEffect, useContext} from 'react'
 import { useState } from 'react'
 import Card from '../Components/Card'
 import { useParams } from 'react-router-dom'
+import { ContextGlobal } from '../Components/utils/global.context'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
+  const { state } = useContext(ContextGlobal);
   const [dentists, setDentists] = useState([])
   const params = useParams();
 
@@ -17,11 +19,12 @@ const Home = () => {
 
   useEffect(() => {
     getDentist()
-
   }, [params])
+
+  const ClassTheme = state.theme === 'dark' ? 'dark_theme' : 'light_theme';
   
   return (
-    <main className="" >
+    <main className={ClassTheme} >
       <h1>Home</h1>
       <div className='card-grid'>
         {dentists.map(dentist => (<Card key={dentist.id} data={dentist}/>))}

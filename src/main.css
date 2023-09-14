@@ -7,6 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark_theme{
+  background-color: #000;
+  color: white;
+}
+
+.light_theme{
+  background-color: white;
+  color: black;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -78,6 +88,10 @@ footer > img{
 footer > p{
   margin: 0;
   padding-top: 0.7rem;
+}
+
+.form_data{
+  text-align: center;
 }
 
 form{
