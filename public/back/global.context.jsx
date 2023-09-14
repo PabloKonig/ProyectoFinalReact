@@ -1,6 +1,6 @@
 import { useReducer, useEffect, createContext } from "react";
 
-const contextReducer =(state, action)=> {
+const appcontrol = (state, action)=> {
   switch (action.type){
     case "CHANGETHEME":
       if(state.theme === "light"){
@@ -9,23 +9,21 @@ const contextReducer =(state, action)=> {
   }
 };
 
-export const initialState = {theme: "light", data: []}
+export const initialState = {theme: "", data: []}
 
-export const ContextGlobal = createContext();
+export const ContextGlobal = createContext(undefined);
 
-const ContextProvider = ({ children }) => {
+export const ContextProvider = ({ children }) => {
  
-  const [state, dispatch] = useReducer(contextReducer, initialState)
+  const [state, dispach] = useReducer(appcontrol, initialState)
 
   useEffect(()=>{
     localStorage.setItem("theme",state.theme.toString());
   },[state.theme]);
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch}}>
+    <ContextGlobal.Provider value={{}}>
       {children}
     </ContextGlobal.Provider>
   );
 };
-
-export default ContextProvider;
