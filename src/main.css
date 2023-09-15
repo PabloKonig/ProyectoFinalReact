@@ -21,12 +21,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.divFav{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
 .favButton{
-  background-color: rgba(136, 136, 136, 0.116);
+  background-color: rgba(164, 127, 127, 0.116);
   padding: 10px;
-  border: none;
-  width: 100%;
+  border:none;
   cursor: pointer;
+  margin: 20px;
+  align-self: center;
+  font-weight: bold;
+  border-radius: 10px;
+  
+}
+
+.favButton:hover{
+ background-color: rgb(193, 220, 220);
+ color:rgb(0, 0, 0)
 }
 
 h1{
@@ -92,6 +108,7 @@ footer > p{
 
 .form_data{
   text-align: center;
+  margin: 20px;
 }
 
 form{
@@ -100,7 +117,7 @@ form{
   justify-content: space-around;
   width: 300px;
   height: 100px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 .card{

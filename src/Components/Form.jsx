@@ -25,13 +25,13 @@ const Form = ({addOnSubmit}) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nombre completo" value={name} onChange={(e) => setName(e.target.value)}/>
-        <input type="text" placeholder="Ingrese su email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <input id="nombreForm" type="text" placeholder="Nombre completo" value={name} onChange={(e) => setName(e.target.value)}/>
+        <input id="emailForm" type="text" placeholder="Ingrese su email" value={email} onChange={(e) => setEmail(e.target.value)}/>
         <button type="submit">Enviar</button>
-        <div>
-          {mensaje && <h5>{mensaje}</h5>}
-        </div>
       </form>
+      <div>
+          {mensaje && <h5>{mensaje}</h5>}
+      </div>
     </div>
   );
 };

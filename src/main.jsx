@@ -11,7 +11,6 @@ import ContextProvider from './Components/utils/global.context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <ContextProvider>
       <BrowserRouter>
       <Routes>
@@ -25,5 +24,4 @@ root.render(
       </Routes>
       </BrowserRouter>
     </ContextProvider>
-  </React.StrictMode>
 );

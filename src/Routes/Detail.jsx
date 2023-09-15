@@ -1,36 +1,51 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { ContextGlobal } from '../Components/utils/global.context'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
 
-  const [dentist, setDentist] = useState([])
+  const [dentistDetail, setDentistDetail] = useState([])
   const params = useParams();
 
-  const getDentist = async() => {
-    const result = await fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
-    const data = await result.json()
-    setDentist(data) 
-  }
-
+ 
+  const getDentist = () =>{
+     fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+        .then(response => response.json())
+        .then(dataApi => setDentistDetail(dataApi))
+        .catch((error) => {
+         console.error("Error al obtener una respuesta - ", error);
+        });
+  };  
+  
   useEffect(() => {
-    getDentist()
+    getDentist();
   }, [params])
 
   return (
     <>
-      <h1>Detail Dentist {dentist.id} </h1>
+      <h1>Dentist {dentistDetail.id} details</h1>
       <table>
-        <tr><th>Name <td> {dentist.name}</td></th></tr>
-        <tr><th>Email <td> {dentist.email}</td></th></tr>
-        <tr><th>Phone <td> {dentist.phone}</td></th></tr>
-        <tr><th>Website <td> {dentist.websit}</td></th></tr>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{dentistDetail.name}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{dentistDetail.email}</td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td>{dentistDetail.phone}</td>
+          </tr>
+          <tr>
+            <th>Website</th>
+            <td>{dentistDetail.website}</td>
+          </tr>
+        </tbody>
       </table>
-      
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
     </>
   )
 }

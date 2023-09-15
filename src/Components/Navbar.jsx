@@ -8,21 +8,21 @@ const Navbar = () => {
   const { state, dispatch } = useContext(ContextGlobal);
   const ClassTheme = state.theme === 'dark' ? 'dark_theme' : 'light_theme';
   return (
-    <div className={'nav ' + ClassTheme}>
-    <nav>
+    <div>
+    <nav className={'nav ' + ClassTheme}>
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <Link className={ClassTheme} to="/home">Home</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link className={ClassTheme} to="/contact">Contact</Link>
         </li>
         <li>
-          <Link to="/favs">Favs</Link>
+          <Link className={ClassTheme} to="/favs">Favs</Link>
         </li>
       </ul>  
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button*/}
-      <button onClick={() => dispatch({ type: 'CHANGETHEME'})}>Change theme</button>
+      <button onClick={() => dispatch({ type: 'CHANGE_THEME'})}>Change theme</button>
     </nav>
     </div>
   )
