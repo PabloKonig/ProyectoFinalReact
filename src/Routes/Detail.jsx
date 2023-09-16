@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { ContextGlobal } from '../Components/utils/global.context'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
-
+  const { state } = useContext(ContextGlobal);
+  const ClassTheme = state.theme === 'dark' ? 'dark_theme' : 'light_theme';
   const [dentistDetail, setDentistDetail] = useState([])
   const params = useParams();
 
- 
   const getDentist = () =>{
      fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
         .then(response => response.json())
@@ -24,7 +24,7 @@ const Detail = () => {
   }, [params])
 
   return (
-    <>
+    <div className={ClassTheme}>
       <h1>Dentist {dentistDetail.id} details</h1>
       <table>
         <tbody>
@@ -46,7 +46,7 @@ const Detail = () => {
           </tr>
         </tbody>
       </table>
-    </>
+    </div>
   )
 }
 

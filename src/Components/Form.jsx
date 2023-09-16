@@ -12,7 +12,7 @@ const Form = ({addOnSubmit}) => {
     if (name.length <= 5 || !validEmail(email)) {
       setMensaje("Por favor verifique su información nuevamente.")
     } else {
-      setMensaje("Gracias " + name + ", te contactaremos cuando antes vía mail")
+      setMensaje("Gracias " + name + ", te contactaremos cuanto antes vía mail")
       /* - Aquí llamaría una función que almecena los datos en una base de datos - */
     }
   };
