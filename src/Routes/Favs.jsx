@@ -8,7 +8,6 @@ const Favs = () => {
   const [favArray, setFavArray] = useState([]);
   const { state } = useContext(ContextGlobal);
   const ClassTheme = state.theme === 'dark' ? 'dark_theme' : 'light_theme';
-  const dentists = state.data;
 
   const loadArrayLocalStorage = () => {
     const storageArray = localStorage.getItem('fav');
@@ -29,8 +28,8 @@ const Favs = () => {
   return (
     <>
       <div className="divFav">
-      <h1>Dentists Favs</h1>
-      <button onClick={delFav} className={"favButton " + ClassTheme}>Delete all favs</button>
+       <h1>Dentists Favs</h1>
+       <button onClick={delFav} className={"favButton " + ClassTheme}>Delete all favs</button>
       </div>
       <div className={"card-grid " + ClassTheme}>  
         {/* este componente debe consumir los destacados del localStorage */}

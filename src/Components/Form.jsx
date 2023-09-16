@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
 
-const Form = ({addOnSubmit}) => {
+const Form = () => {
   
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [mensaje, setMensaje] = useState("")
+  const [message, setMessage] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.length <= 5 || !validEmail(email)) {
-      setMensaje("Por favor verifique su información nuevamente.")
+      setMessage("Por favor verifique su información nuevamente.")
     } else {
-      setMensaje("Gracias " + name + ", te contactaremos cuanto antes vía mail")
+      setMessage("Gracias " + name + ", te contactaremos cuanto antes vía mail")
       /* - Aquí llamaría una función que almecena los datos en una base de datos - */
     }
   };
@@ -30,7 +30,7 @@ const Form = ({addOnSubmit}) => {
         <button type="submit">Enviar</button>
       </form>
       <div>
-          {mensaje && <h5>{mensaje}</h5>}
+          {message && <h5>{message}</h5>}
       </div>
     </div>
   );
